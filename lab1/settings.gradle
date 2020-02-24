@@ -1,3 +1,0 @@
-rootProject.name = 'imageFilter'
-include 'parent:no.tornado.fxsample:1.0'
-
