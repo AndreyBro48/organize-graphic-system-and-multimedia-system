@@ -2,6 +2,8 @@ package image.filter.main
 
 import javafx.scene.image.Image
 import javafx.scene.image.WritableImage
+import javafx.scene.layout.Region
+import javafx.stage.FileChooser
 import tornadofx.*
 import java.io.File
 import javax.imageio.ImageIO
@@ -28,7 +30,7 @@ class CustomerForm : View("Register Customer") {
 //            }
 //            field("Zip / City") {
 //                textfield(model.zip) {
-//                    //addClass(zip)
+//                    addClass(zip)
 //                    required()
 //                }
 //                textfield(model.city).required()
@@ -64,14 +66,11 @@ class CustomerForm : View("Register Customer") {
         center {
             hbox {
                 stackpane {
-                    imageview(wImg1).apply {
+                    imageview(wImg1){
+                    }.apply {
                         makePixelsDuller(wImg1)
                         makePixelsDuller(wImg1)
                         makePixelsDuller(wImg1)
-                    }
-                    hboxConstraints {
-                        prefWidth = 400.0
-                        prefHeight = 400.0
                     }
                 }
             }
@@ -79,11 +78,11 @@ class CustomerForm : View("Register Customer") {
     }
 
     private fun getImage(str:String) : Image{
-        val file = File(str)
+        val ef = arrayOf(FileChooser.ExtensionFilter("Image files (*.png, *.jpg)", "*.png", "*.jpg"))
+        val file = chooseFile(null, ef).first()
         val image1 = ImageIO.read(file)
         val image2 = Image(file.inputStream())
-        image2.getImpl
-        return
+        return image2
     }
     private fun makePixelsDuller(image: WritableImage) {
         val pixelReader = image.pixelReader
