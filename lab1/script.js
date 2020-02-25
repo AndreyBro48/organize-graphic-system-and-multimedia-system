@@ -2,7 +2,8 @@ var ctx
 const TypeFilter = {
     GRAY: 1,
     NEGATIVE: 2,
-    BRIGH: 3
+    BRIGH: 3,
+    DARK: 4
 }
 
 function saveImage(){
